@@ -11,16 +11,23 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var tipTooltipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var billTotalView: UIView!
     
-    let tipPercentages = [0.18, 0.2, 0.25]
+    let tipDao = TipDao()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tipDao.initTipControl(tipControl: tipControl)
+        billTotalView.alpha = 0
         initDefaultTip()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        billField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,22 +40,25 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(_ sender: AnyObject) {
         let bill = Double(billField.text!) ?? 0
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let tip = bill * tipDao.getTipAmount(position: tipControl.selectedSegmentIndex)
         let total = bill + tip
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         
-        let hasLongText = tip >= 1000
-        hideToolTipLabel(shouldHide: hasLongText)
+        updateViews(bill: bill, tip: tip)
     }
     
-    func hideToolTipLabel(shouldHide: Bool) {
+    func updateViews(bill: Double, tip: Double) {
+        hideView(view: billTotalView, shouldHide: bill == 0)
+    }
+    
+    func hideView(view: UIView, shouldHide: Bool) {
         let alpha = shouldHide ? Float(0) : Float(1)
-        let currentAlpha = Float(tipTooltipLabel!.alpha)
+        let currentAlpha = Float(view.alpha)
         if currentAlpha != alpha {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.tipTooltipLabel.alpha = CGFloat(alpha)
+            UIView.animate(withDuration: 0.4, animations: {
+                view.alpha = CGFloat(alpha)
             })
         }
     }

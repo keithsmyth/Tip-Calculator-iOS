@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TipDao().initTipControl(tipControl: tipControl)
         tipControl.selectedSegmentIndex = defaultsDao.getDefaultTipIndex()
     }
 

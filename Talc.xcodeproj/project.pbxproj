@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470DC87B1D9A256E008CF3BB /* TipDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DC87A1D9A256E008CF3BB /* TipDao.swift */; };
 		4721473C1D962D5E000BA8B5 /* DefaultsDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721473B1D962D5E000BA8B5 /* DefaultsDao.swift */; };
 		4792315E1D93703800F23D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792315D1D93703800F23D80 /* AppDelegate.swift */; };
 		479231601D93703800F23D80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792315F1D93703800F23D80 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470DC87A1D9A256E008CF3BB /* TipDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDao.swift; sourceTree = "<group>"; };
 		4721473B1D962D5E000BA8B5 /* DefaultsDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsDao.swift; sourceTree = "<group>"; };
 		4792315A1D93703800F23D80 /* Talc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4792315D1D93703800F23D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				479231661D93703800F23D80 /* LaunchScreen.storyboard */,
 				479231691D93703800F23D80 /* Info.plist */,
 				4721473B1D962D5E000BA8B5 /* DefaultsDao.swift */,
+				470DC87A1D9A256E008CF3BB /* TipDao.swift */,
 			);
 			path = Talc;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4721473C1D962D5E000BA8B5 /* DefaultsDao.swift in Sources */,
+				470DC87B1D9A256E008CF3BB /* TipDao.swift in Sources */,
 				479231601D93703800F23D80 /* ViewController.swift in Sources */,
 				4792315E1D93703800F23D80 /* AppDelegate.swift in Sources */,
 				4792318C1D93983C00F23D80 /* SettingsViewController.swift in Sources */,
